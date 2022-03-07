@@ -1,0 +1,11 @@
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2em 1em;
+  border-bottom: 1px solid black;
+
+  h1 {
+    font-size: 1.2em;
+  }
+}

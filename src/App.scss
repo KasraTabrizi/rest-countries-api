@@ -1,8 +1,14 @@
-@import-normalize;
+@import "./styles/color";
+@import "./styles/typography";
 
 body {
   margin: 0;
   font-family: "Nunito Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: $font-size-homepage-items;
+}
+
+.App {
+  text-align: center;
 }
