@@ -1,4 +1,5 @@
 import "./App.scss";
+import Country from "./components/CountryList/Country/Country";
 import Header from "./components/Header/Header";
 import {
   useFetchAll,
@@ -20,26 +21,16 @@ function App() {
         <input type="text" />
       </div>
       <div>{/* FILTER */}</div>
-      {loadingCountries ? (
-        <div>loading</div>
-      ) : (
-        countries &&
-        countries.map((country) => {
-          return (
-            <div>
-              <img
-                src={country.flags.svg}
-                alt="flag"
-                style={{ width: "50%" }}
-              />
-              <h3>{country.name.common}</h3>
-              <p>Population: {country.population}</p>
-              <p>Region: {country.region}</p>
-              <p>Capital: {country.capital}</p>
-            </div>
-          );
-        })
-      )}
+      <div className="coutrylist__container">
+        {loadingCountries ? (
+          <div>loading</div>
+        ) : (
+          countries &&
+          countries.map((country, index) => {
+            return <Country country={country} key={index} id={index} />;
+          })
+        )}
+      </div>
     </div>
   );
 }

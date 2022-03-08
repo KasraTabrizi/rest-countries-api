@@ -1,10 +1,27 @@
 @import "./styles/color";
 @import "./styles/typography";
 
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: "Nunito Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: $font-size-homepage-items;
+}
+
+.coutrylist__container {
+  margin-top: 40px;
+  display: grid;
+  justify-items: center;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  row-gap: 40px;
 }
