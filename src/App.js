@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./App.scss";
 import Country from "./components/CountryList/Country/Country";
 import Header from "./components/Header/Header";
@@ -9,8 +10,13 @@ import {
 
 function App() {
   const [countries, errorCountries, loadingCountries] = useFetchAll();
+  const [searchInput, setSearchInput] = useState("");
   // const [country, errorCountry, loadingCountry] = useFetchCountry("Belgium");
   // const [region, errorRegion, loadingRegion] = useFetchRegion("Europe");
+
+  const onChangeHandler = (e) => {
+    setSearchInput(e.target.value);
+  };
 
   return (
     <div className="App">
@@ -18,7 +24,12 @@ function App() {
       {/* SEARCH INPUT */}
       <div>
         <ion-icon name="search"></ion-icon>
-        <input type="text" />
+        <input
+          type="text"
+          value={searchInput}
+          placeholder="Search for a country..."
+          onChange={(e) => onChangeHandler(e)}
+        />
       </div>
       <div>{/* FILTER */}</div>
       <div className="coutrylist__container">

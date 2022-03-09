@@ -7,9 +7,15 @@ const Country = ({ country }) => {
       <img src={country.flags.svg} alt="flag" />
       <div className={styles.country_info__container}>
         <h3>{country.name.common}</h3>
-        <p>Population: {country.population}</p>
-        <p>Region: {country.region}</p>
-        <p>Capital: {country.capital}</p>
+        <p>
+          <span>Population:</span> {country.population}
+        </p>
+        <p>
+          <span>Region:</span> {country.region}
+        </p>
+        <p>
+          <span>Capital:</span> {country.capital}
+        </p>
       </div>
     </div>
   );
