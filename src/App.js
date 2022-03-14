@@ -6,16 +6,21 @@ import {
   useFetchAll,
   useFetchCountry,
   useFetchRegion,
+  useFetchCountries,
 } from "./hooks/useFetchAll";
 
 function App() {
-  const [countries, errorCountries, loadingCountries] = useFetchAll();
+  // const [countries, errorCountries, loadingCountries] = useFetchAll();
+  const [countries, error, loading, fetchData] = useFetchCountries();
+  console.log(countries);
   const [searchInput, setSearchInput] = useState("");
   // const [country, errorCountry, loadingCountry] = useFetchCountry("Belgium");
   // const [region, errorRegion, loadingRegion] = useFetchRegion("Europe");
 
   const onChangeHandler = (e) => {
     setSearchInput(e.target.value);
+    console.log(e.target.value);
+    fetchData("country", e.target.value);
   };
 
   return (
@@ -33,7 +38,7 @@ function App() {
       </div>
       <div>{/* FILTER */}</div>
       <div className="coutrylist__container">
-        {loadingCountries ? (
+        {loading ? (
           <div>loading</div>
         ) : (
           countries &&
