@@ -1,16 +1,17 @@
+//IMPORT REACT
 import { useState } from "react";
+
+//IMPORT STYLES
 import "./App.scss";
+
+//IMPORT CHILD COMPONENTS
 import Country from "./components/CountryList/Country/Country";
 import Header from "./components/Header/Header";
-import {
-  useFetchAll,
-  useFetchCountry,
-  useFetchRegion,
-  useFetchCountries,
-} from "./hooks/useFetchAll";
+
+//IMPORT CUSTOM HOOKS
+import { useFetchCountries } from "./hooks/useFetchAll";
 
 function App() {
-  // const [countries, errorCountries, loadingCountries] = useFetchAll();
   const [countries, error, loading, setFetchFilter] = useFetchCountries();
   console.log(countries);
   const [searchInput, setSearchInput] = useState("");
@@ -19,9 +20,9 @@ function App() {
     setSearchInput(e.target.value);
     console.log(e.target.value);
     if (!e.target.value) {
-      setFetchFilter("none", "");
+      setFetchFilter("none", ""); //if input is empty again, show all countries
     } else {
-      setFetchFilter("country", e.target.value);
+      setFetchFilter("country", e.target.value); //if something typed in input, filter for country
     }
   };
 
@@ -38,7 +39,7 @@ function App() {
           onChange={(e) => onChangeHandler(e)}
         />
       </div>
-      <div>{/* FILTER */}</div>
+      <div></div>
       <div className="coutrylist__container">
         {loading ? (
           <div>loading</div>
