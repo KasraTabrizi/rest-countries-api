@@ -1,5 +1,7 @@
+//IMPORT REACT
 import React, { useState } from "react";
 
+//IMPORT STYLES
 import styles from "./inputsearch.module.scss";
 
 const InputSearch = ({ onChangeHandler }) => {

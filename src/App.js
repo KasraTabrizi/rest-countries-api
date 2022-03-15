@@ -6,6 +6,7 @@ import "./App.scss";
 
 //IMPORT CHILD COMPONENTS
 import Country from "./components/CountryList/Country/Country";
+import FilterSelect from "./components/FilterSelect/FilterSelect";
 import Header from "./components/Header/Header";
 import InputSearch from "./components/InputSearch/InputSearch";
 
@@ -35,20 +36,11 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <InputSearch onChangeHandler={(value) => onSearchCountryHandler(value)} />
-      <div>
-        <select
-          name="region"
-          id="region"
-          onChange={(e) => onFilterRegionHandler(e)}
-        >
-          <option value="default">Filter by Region</option>
-          <option value="Africa">Africa</option>
-          <option value="America">America</option>
-          <option value="Asia">Asia</option>
-          <option value="Europe">Europe</option>
-          <option value="Oceania">Oceania</option>
-        </select>
+      <div className="filter__container">
+        <InputSearch
+          onChangeHandler={(value) => onSearchCountryHandler(value)}
+        />
+        <FilterSelect onChangeHandler={(e) => onFilterRegionHandler(e)} />
       </div>
       <div className="coutrylist__container">
         {loading ? (

@@ -26,3 +26,11 @@ body {
   grid-template-rows: auto;
   row-gap: 40px;
 }
+
+.filter__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 20vh;
+}
