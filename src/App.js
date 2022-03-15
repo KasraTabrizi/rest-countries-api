@@ -7,20 +7,20 @@ import "./App.scss";
 //IMPORT CHILD COMPONENTS
 import Country from "./components/CountryList/Country/Country";
 import Header from "./components/Header/Header";
+import InputSearch from "./components/InputSearch/InputSearch";
 
 //IMPORT CUSTOM HOOKS
 import { useFetchCountries } from "./hooks/useFetchAll";
 
 function App() {
   const [countries, error, loading, setFetchFilter] = useFetchCountries();
-  const [searchInput, setSearchInput] = useState("");
 
-  const onSearchCountryHandler = (e) => {
-    setSearchInput(e.target.value);
-    if (!e.target.value) {
+  const onSearchCountryHandler = (value) => {
+    console.log(value);
+    if (!value) {
       setFetchFilter(); //if input is empty again, show all countries
     } else {
-      setFetchFilter("country", e.target.value); //if something typed in input, filter for country
+      setFetchFilter("country", value); //if something typed in input, filter for country
     }
   };
 
@@ -35,16 +35,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      {/* SEARCH INPUT */}
-      <div>
-        <ion-icon name="search"></ion-icon>
-        <input
-          type="text"
-          value={searchInput}
-          placeholder="Search for a country..."
-          onChange={(e) => onSearchCountryHandler(e)}
-        />
-      </div>
+      <InputSearch onChangeHandler={(value) => onSearchCountryHandler(value)} />
       <div>
         <select
           name="region"

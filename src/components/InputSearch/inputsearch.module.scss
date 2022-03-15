@@ -1,0 +1,27 @@
+@import "../../styles/color";
+@import "../../styles/typography";
+@import "../../styles/layout";
+
+.inputsearch__container {
+  width: 90%;
+  margin: 2em auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1em 0 1em 2em;
+  box-shadow: 0px 2px 5px rgba(61, 61, 61, 0.1);
+  background-color: $color-neutral-white;
+
+  input {
+    outline: none;
+    border: none;
+    background: transparent;
+    width: 100%;
+    padding: 0 1em;
+
+    &::placeholder {
+      color: lightgray;
+      font-size: 0.85em;
+    }
+  }
+}
