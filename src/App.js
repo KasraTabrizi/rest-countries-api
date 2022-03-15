@@ -18,7 +18,7 @@ function App() {
   const onSearchCountryHandler = (e) => {
     setSearchInput(e.target.value);
     if (!e.target.value) {
-      setFetchFilter("none", ""); //if input is empty again, show all countries
+      setFetchFilter(); //if input is empty again, show all countries
     } else {
       setFetchFilter("country", e.target.value); //if something typed in input, filter for country
     }
@@ -26,7 +26,7 @@ function App() {
 
   const onFilterRegionHandler = (e) => {
     if (e.target.value === "default") {
-      setFetchFilter("none", ""); //if input is empty again, show all countries
+      setFetchFilter(); //if input is empty again, show all countries
     } else {
       setFetchFilter("region", e.target.value); //if something typed in input, filter for region
     }

@@ -6,7 +6,7 @@ export const useFetchCountries = (filter = "none", query = "") => {
   const [error, setError] = useState();
   const [loading, setLoading] = useState(false);
 
-  const setFetchFilter = (filter, query) => {
+  const setFetchFilter = (filter = "none", query = "") => {
     let fetchType = "";
     if (filter === "none") {
       fetchType = `https://restcountries.com/v3.1/all`;
@@ -26,7 +26,7 @@ export const useFetchCountries = (filter = "none", query = "") => {
   };
 
   useEffect(() => {
-    setFetchFilter(filter, query);
+    setFetchFilter((filter = "none"), (query = ""));
   }, []);
 
   return [countries, error, loading, setFetchFilter];
