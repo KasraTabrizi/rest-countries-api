@@ -11,16 +11,18 @@ import {
 
 function App() {
   // const [countries, errorCountries, loadingCountries] = useFetchAll();
-  const [countries, error, loading, fetchData] = useFetchCountries();
+  const [countries, error, loading, setFetchFilter] = useFetchCountries();
   console.log(countries);
   const [searchInput, setSearchInput] = useState("");
-  // const [country, errorCountry, loadingCountry] = useFetchCountry("Belgium");
-  // const [region, errorRegion, loadingRegion] = useFetchRegion("Europe");
 
   const onChangeHandler = (e) => {
     setSearchInput(e.target.value);
     console.log(e.target.value);
-    fetchData("country", e.target.value);
+    if (!e.target.value) {
+      setFetchFilter("none", "");
+    } else {
+      setFetchFilter("country", e.target.value);
+    }
   };
 
   return (
