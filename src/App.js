@@ -15,7 +15,10 @@ import { useFetchCountries } from "./hooks/useFetchAll";
 
 function App() {
   const [countries, error, loading, setFetchFilter] = useFetchCountries();
+  const [selectedCountry, setSelectedCountry] = useState(null);
+  const [expandCountryInfo, setExpandCountryInfo] = useState(false);
 
+  console.log(countries);
   const onSearchCountryHandler = (value) => {
     console.log(value);
     if (!value) {
@@ -33,21 +36,62 @@ function App() {
     }
   };
 
+  const selectedCountryHandler = (countryName) => {
+    setSelectedCountry(countryName);
+    setExpandCountryInfo(true);
+  };
+
   return (
     <div className="App">
       <Header />
-      <div className="filter__container">
-        <InputSearch
-          onChangeHandler={(value) => onSearchCountryHandler(value)}
-        />
-        <FilterSelect onChangeHandler={(e) => onFilterRegionHandler(e)} />
-      </div>
+      {/* if a specific country is not selected, show the filter options */}
+      {selectedCountry ? (
+        <div
+          onClick={() => {
+            setExpandCountryInfo(false);
+            setSelectedCountry(null);
+          }}
+        >
+          back
+        </div>
+      ) : (
+        <div className="filter__container">
+          <InputSearch
+            onChangeHandler={(value) => onSearchCountryHandler(value)}
+          />
+          <FilterSelect onChangeHandler={(e) => onFilterRegionHandler(e)} />
+        </div>
+      )}
       <div className="coutrylist__container">
         {loading ? (
           <div>loading...</div>
         ) : countries ? (
           countries.map((country, index) => {
-            return <Country country={country} key={index} id={index} />;
+            if (selectedCountry) {
+              if (selectedCountry === country.name.common)
+                return (
+                  <Country
+                    country={country}
+                    key={index}
+                    id={index}
+                    expandCountryInfo={expandCountryInfo}
+                    onClickHandler={(countryName) =>
+                      selectedCountryHandler(countryName)
+                    }
+                  />
+                );
+            } else {
+              return (
+                <Country
+                  country={country}
+                  key={index}
+                  id={index}
+                  onClickHandler={(countryName) =>
+                    selectedCountryHandler(countryName)
+                  }
+                />
+              );
+            }
           })
         ) : (
           error && <div>error</div>
