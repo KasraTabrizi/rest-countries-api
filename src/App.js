@@ -18,9 +18,7 @@ function App() {
   const [selectedCountry, setSelectedCountry] = useState(null);
   const [expandCountryInfo, setExpandCountryInfo] = useState(false);
 
-  console.log(countries);
   const onSearchCountryHandler = (value) => {
-    console.log(value);
     if (!value) {
       setFetchFilter(); //if input is empty again, show all countries
     } else {
@@ -41,19 +39,19 @@ function App() {
     setExpandCountryInfo(true);
   };
 
+  const goBackToMainPage = () => {
+    setExpandCountryInfo(false);
+    setSelectedCountry(null);
+  };
+
   return (
-    <div className="App">
+    <div>
       <Header />
       {/* if a specific country is not selected, show the filter options */}
       {selectedCountry ? (
-        <div
-          onClick={() => {
-            setExpandCountryInfo(false);
-            setSelectedCountry(null);
-          }}
-        >
-          back
-        </div>
+        <button className="back__button" onClick={() => goBackToMainPage()}>
+          <ion-icon name="arrow-back-outline"></ion-icon> Back
+        </button>
       ) : (
         <div className="filter__container">
           <InputSearch
