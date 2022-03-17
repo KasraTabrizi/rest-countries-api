@@ -3,9 +3,6 @@ import styles from "./country.module.scss";
 
 const Country = ({ country, onClickHandler, expandCountryInfo }) => {
   console.log(country);
-  const selectCountry = () => {
-    onClickHandler(country.name.common);
-  };
 
   return (
     <div
@@ -14,7 +11,7 @@ const Country = ({ country, onClickHandler, expandCountryInfo }) => {
           ? styles.country_expand__container
           : styles.country__container
       }
-      onClick={() => selectCountry()}
+      onClick={() => onClickHandler(country.name.common)}
     >
       <img src={country.flags.svg} alt="flag" />
       <div className={styles.country_info__container}>
