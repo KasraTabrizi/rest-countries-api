@@ -7,7 +7,7 @@ import styles from "./filterselect.module.scss";
 const FilterSelect = ({ onChangeHandler }) => {
   return (
     <div className={styles.filterselect__container}>
-      <select name="region" id="region" onChange={(e) => onChangeHandler(e)}>
+      <select name="region" onChange={(e) => onChangeHandler(e)}>
         <option value="default">Filter by Region</option>
         <option value="Africa">Africa</option>
         <option value="America">America</option>

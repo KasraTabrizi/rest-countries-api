@@ -75,6 +75,16 @@ const Country = ({ country, onClickHandler, expandCountryInfo }) => {
         {expandCountryInfo && (
           <div className={styles.expanded_info__container}>
             <h4>Border Countries: </h4>
+            <div className={styles.borders__container}>
+              {country.borders &&
+                country.borders.map((country) => {
+                  return (
+                    <div className={styles.border_country__container}>
+                      {country}
+                    </div>
+                  );
+                })}
+            </div>
           </div>
         )}
       </div>
