@@ -30,7 +30,27 @@
     }
   }
 }
+@media (min-width: 1440px) {
+  .country__container {
+    width: 20vw;
+    img {
+      width: 100%;
+      height: 50%;
+      object-fit: cover;
+    }
+  }
+}
 
+@media (min-width: 2000px) {
+  .country__container {
+    width: 15vw;
+    img {
+      width: 100%;
+      height: 50%;
+      object-fit: cover;
+    }
+  }
+}
 .country_expand__container {
   width: 75vw;
   background-color: transparent;

@@ -48,3 +48,21 @@ body {
   justify-content: space-between;
   align-items: center;
 }
+
+@media (min-width: 1440px) {
+  .coutrylist__container {
+    margin-top: 40px;
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    row-gap: 40px;
+  }
+  .filter__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 20vh;
+    border: 1px solid black;
+  }
+}

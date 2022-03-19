@@ -19,3 +19,12 @@
     border-radius: $border-radius-5;
   }
 }
+
+@media (min-width: 1440px) {
+  .filterselect__container {
+    width: 20vw;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+}
