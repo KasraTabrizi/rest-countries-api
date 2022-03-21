@@ -21,3 +21,9 @@
     font-weight: $font-weight-600;
   }
 }
+
+@media (min-width: 1440px) {
+  .header__container {
+    padding: 2em 40px;
+  }
+}
