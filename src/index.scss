@@ -1,0 +1,31 @@
+@import "./styles/color";
+@import "./styles/typography";
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Nunito Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: $font-size-homepage-items;
+  background-color: $color-neutral-very-light-gray;
+  margin-bottom: 40px;
+}
+
+:root {
+  $header-background-color: $color-neutral-white;
+}
+
+/*========== Variables Dark theme ========= */
+[data-theme="dark"] {
+  background-color: $color-neutral-very-dark-blue;
+  color: $color-neutral-white;
+  transition: 0.4s;
+}
