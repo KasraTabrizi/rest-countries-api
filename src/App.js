@@ -9,6 +9,7 @@ import Country from "./components/CountryList/Country/Country";
 import FilterSelect from "./components/FilterSelect/FilterSelect";
 import Header from "./components/Header/Header";
 import InputSearch from "./components/InputSearch/InputSearch";
+import DarkMode from "./DarkMode";
 
 //IMPORT CUSTOM HOOKS
 import { useFetchCountries } from "./hooks/useFetchAll";
