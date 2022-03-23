@@ -2,7 +2,7 @@
 
 ![Design preview for the REST Countries API with color theme switcher coding challenge](./design/desktop-preview.jpg)
 
-Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+Live Site URL: [Demo](https://kasratabrizi.github.io/rest-countries-api/)
 
 ## Table of contents
 
